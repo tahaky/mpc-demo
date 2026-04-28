@@ -2,12 +2,10 @@ from mpyc.runtime import mpc
 import csv
 
 async def main():
-
     await mpc.start()
 
-    print(f"[{mpc.pid}] başladı")
+    print(f"[{mpc.pid}] başladı", flush=True)
 
-    # her peer kendi local CSV'sini okur
     data = []
     with open("dataset.csv", "r") as f:
         reader = csv.DictReader(f)
@@ -18,33 +16,22 @@ async def main():
                 "score": int(row["score"]),
             })
 
-    print(f"[{mpc.pid}] local data:", data)
+    print(f"[{mpc.pid}] local data:", data, flush=True)
 
-    secint = mpc.SecInt() # 32 64
+    secint = mpc.SecInt()
 
-    # sadece age kolonunu al (örnek)
-    local_ages = [secint(d["age"]) for d in data]
+    local_sum = sum(d["age"] for d in data)
+    secret_local_sum = secint(local_sum)
 
-    # HER SATIR için input ver
-    all_shared = []
+    shared_sums = mpc.input(secret_local_sum, senders=mpc.parties)
 
-    for age in local_ages:
-        shared = mpc.input(age)
-        all_shared.append(shared)
-
-    # flatten (çok önemli)
-    flat = []
-    for s in all_shared:
-        flat.extend(s)
-
-    # toplam hesapla
-    total = mpc.sum(flat)
+    total = mpc.sum(shared_sums)
 
     result = await mpc.output(total)
 
     if mpc.pid == 0:
-        print("\n=== SONUÇ ===")
-        print("Toplam age:", result)
+        print("\n=== SONUÇ ===", flush=True)
+        print("Toplam age:", result, flush=True)
 
     await mpc.shutdown()
 
