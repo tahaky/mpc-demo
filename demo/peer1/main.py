@@ -20,10 +20,18 @@ async def main():
 
     secint = mpc.SecInt()
 
-    local_sum = sum(d["age"] for d in data)
-    secret_local_sum = secint(local_sum)
+    # Her peer kendi local toplamını hesaplar
+    local_age_sum = sum(d["age"] for d in data)
 
-    shared_sums = mpc.input(secret_local_sum, senders=mpc.parties)
+    print(f"[{mpc.pid}] local age sum:", local_age_sum, flush=True)
+
+    # Her party kendi local toplamını secret input olarak verir
+    secret_local_sum = secint(local_age_sum)
+
+    shared_sums = mpc.input(
+        secret_local_sum,
+        senders=list(range(len(mpc.parties)))
+    )
 
     total = mpc.sum(shared_sums)
 
