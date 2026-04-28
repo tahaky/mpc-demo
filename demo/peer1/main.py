@@ -20,35 +20,17 @@ async def main():
 
     secint = mpc.SecInt()
 
-    local_age_sum = sum(d["age"] for d in data)
+    local_sum = sum(d["age"] for d in data)
+    secret_local_sum = secint(local_sum)
 
-    print(f"[{mpc.pid}] local age sum:", local_age_sum, flush=True)
-
-    secret_local_sum = secint(local_age_sum)
-
-
-    shared_sums = []
-
-    for sender in range(len(mpc.parties)):
-        print(f"[{mpc.pid}] input sender={sender} öncesi", flush=True)
-
-        if mpc.pid == sender:
-            x = secret_local_sum
-        else:
-            x = None
-
-    shared = mpc.input(x, senders=sender)
-    shared_sums.append(shared)
-
-    print(f"[{mpc.pid}] input sender={sender} sonrası", flush=True)
+    shared_sums = mpc.input(
+        secret_local_sum,
+        senders=range(len(mpc.parties))
+    )
 
     total = mpc.sum(shared_sums)
 
-    print(f"[{mpc.pid}] output öncesi", flush=True)
-
     result = await mpc.output(total)
-
-    print(f"[{mpc.pid}] output sonrası result={result}", flush=True)
 
     if mpc.pid == 0:
         print("\n=== SONUÇ ===", flush=True)
