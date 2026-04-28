@@ -1,0 +1,41 @@
+# Veri sayısı
+n = 4
+
+# Arrays oluştur
+ids = Array(n, sint)
+ages = Array(n, sint)
+incomes = Array(n, sint)
+scores = Array(n, sint)
+
+# Inputları oku
+for i in range(n):
+    ids[i] = sint.get_input_from(0)
+    ages[i] = sint.get_input_from(0)
+    incomes[i] = sint.get_input_from(1)
+    scores[i] = sint.get_input_from(2)
+
+# Hesaplamalar
+total_age = sum(ages)
+total_income = sum(incomes)
+total_score = sum(scores)
+avg_age = total_age / n
+avg_income = total_income / n
+avg_score = total_score / n
+correlation_sum = sum(incomes[i] * scores[i] for i in range(n))
+
+# Sonuçları reveal et
+result_total_age = total_age.reveal()
+result_avg_age = avg_age.reveal()
+result_total_income = total_income.reveal()
+result_avg_income = avg_income.reveal()
+result_total_score = total_score.reveal()
+result_avg_score = avg_score.reveal()
+result_correlation = correlation_sum.reveal()
+
+# Output
+print_ln("VERİ ANALİZİ")
+print_ln("Kayıt: %s", n)
+print_ln("Toplam Yaş: %s | Ortalama: %s", result_total_age, result_avg_age)
+print_ln("Toplam Gelir: %s | Ortalama: %s", result_total_income, result_avg_income)
+print_ln("Toplam Skor: %s | Ortalama: %s", result_total_score, result_avg_score)
+print_ln("Gelir*Skor: %s", result_correlation)

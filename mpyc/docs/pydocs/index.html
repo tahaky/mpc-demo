@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: package mpyc</title>
+<link rel="stylesheet" type="text/css" href="pydoc.css">
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">mpyc</strong> (version 0.11 )</td>
+<td class="extra"><a href=".">index</a><br><a href="https://github.com/lschoe/mpyc/blob/v0.11/mpyc/__init__.py">github.com/lschoe/mpyc/blob/v0.11/mpyc/__init__.py</a></td></tr></table>
+    <p><span class="code">MPyC&nbsp;is&nbsp;a&nbsp;Python&nbsp;package&nbsp;for&nbsp;secure&nbsp;multiparty&nbsp;computation&nbsp;(MPC).<br>
+&nbsp;<br>
+MPyC&nbsp;provides&nbsp;a&nbsp;runtime&nbsp;for&nbsp;performing&nbsp;computations&nbsp;on&nbsp;secret-shared&nbsp;values,<br>
+where&nbsp;parties&nbsp;interact&nbsp;by&nbsp;exchanging&nbsp;messages&nbsp;via&nbsp;peer-to-peer&nbsp;connections.<br>
+The&nbsp;MPC&nbsp;protocols&nbsp;are&nbsp;based&nbsp;on&nbsp;Shamir's&nbsp;threshold&nbsp;secret&nbsp;sharing&nbsp;scheme<br>
+and&nbsp;withstand&nbsp;passive&nbsp;adversaries&nbsp;controlling&nbsp;less&nbsp;than&nbsp;half&nbsp;of&nbsp;the&nbsp;parties.<br>
+&nbsp;<br>
+Secure&nbsp;integer&nbsp;and&nbsp;fixed-point&nbsp;arithmetic&nbsp;are&nbsp;supported&nbsp;for&nbsp;parameterized<br>
+number&nbsp;ranges,&nbsp;also&nbsp;including&nbsp;support&nbsp;for&nbsp;comparison&nbsp;and&nbsp;bitwise&nbsp;operations.<br>
+Secure&nbsp;finite&nbsp;field&nbsp;arithmetic&nbsp;is&nbsp;supported&nbsp;for&nbsp;fields&nbsp;of&nbsp;arbitrary&nbsp;order.<br>
+Secure&nbsp;NumPy&nbsp;arrays&nbsp;over&nbsp;these&nbsp;basic&nbsp;types&nbsp;are&nbsp;available&nbsp;as&nbsp;well.<br>
+&nbsp;<br>
+Basic&nbsp;support&nbsp;for&nbsp;secure&nbsp;floating-point&nbsp;arithmetic&nbsp;is&nbsp;provided&nbsp;as&nbsp;well&nbsp;as<br>
+basic&nbsp;support&nbsp;for&nbsp;secure&nbsp;polynomial&nbsp;arithmetic&nbsp;(over&nbsp;prime&nbsp;fields).<br>
+Moreover,&nbsp;support&nbsp;for&nbsp;secure&nbsp;finite&nbsp;group&nbsp;operations&nbsp;is&nbsp;built-in&nbsp;for&nbsp;a&nbsp;range&nbsp;of<br>
+groups,&nbsp;particularly&nbsp;for&nbsp;use&nbsp;in&nbsp;threshold&nbsp;cryptography&nbsp;(e.g.,&nbsp;Schnorr&nbsp;groups<br>
+and&nbsp;elliptic&nbsp;curves).<br>
+&nbsp;<br>
+The&nbsp;above&nbsp;operations&nbsp;are&nbsp;all&nbsp;available&nbsp;via&nbsp;Python's&nbsp;operator&nbsp;overloading.<br>
+&nbsp;<br>
+Secure&nbsp;drop-in&nbsp;replacements&nbsp;for&nbsp;lots&nbsp;of&nbsp;Python&nbsp;built-in&nbsp;functions,&nbsp;such&nbsp;as<br>
+all(),&nbsp;any(),&nbsp;sum(),&nbsp;min(),&nbsp;max(),&nbsp;sorted()&nbsp;are&nbsp;provided,&nbsp;mimicking&nbsp;the&nbsp;Python<br>
+APIs&nbsp;as&nbsp;much&nbsp;as&nbsp;possible.&nbsp;Further&nbsp;operations&nbsp;for&nbsp;container&nbsp;datatypes&nbsp;holding<br>
+secret-shared&nbsp;data&nbsp;items&nbsp;are&nbsp;provided&nbsp;as&nbsp;well&nbsp;(e.g.,&nbsp;matrix-vector&nbsp;operations<br>
+like&nbsp;secure&nbsp;dot&nbsp;products),&nbsp;next&nbsp;to&nbsp;the&nbsp;support&nbsp;for&nbsp;NumPy&nbsp;arrays.<br>
+&nbsp;<br>
+And&nbsp;much&nbsp;more&nbsp;functionality&nbsp;still&nbsp;in&nbsp;a&nbsp;couple&nbsp;of&nbsp;extension&nbsp;modules:&nbsp;seclists<br>
+(secure&nbsp;lists&nbsp;with&nbsp;oblivious&nbsp;access&nbsp;and&nbsp;updates),&nbsp;mpctools&nbsp;(reduce&nbsp;and&nbsp;accumulate<br>
+with&nbsp;log&nbsp;round&nbsp;complexity),&nbsp;random&nbsp;(securely&nbsp;mimicking&nbsp;Python’s&nbsp;random&nbsp;module),<br>
+and&nbsp;statistics&nbsp;(securely&nbsp;mimicking&nbsp;Python’s&nbsp;statistics&nbsp;module).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Package Contents</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="mpyc.__main__.html">__main__</a><br>
+<a href="mpyc.asyncoro.html">asyncoro</a><br>
+<a href="mpyc.finfields.html">finfields</a><br>
+<a href="mpyc.fingroups.html">fingroups</a><br>
+</td><td class="multicolumn"><a href="mpyc.gfpx.html">gfpx</a><br>
+<a href="mpyc.gmpy.html">gmpy</a><br>
+<a href="mpyc.mpctools.html">mpctools</a><br>
+<a href="mpyc.numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="mpyc.random.html">random</a><br>
+<a href="mpyc.runtime.html">runtime</a><br>
+<a href="mpyc.secgroups.html">secgroups</a><br>
+<a href="mpyc.seclists.html">seclists</a><br>
+</td><td class="multicolumn"><a href="mpyc.secpols.html">secpols</a><br>
+<a href="mpyc.sectypes.html">sectypes</a><br>
+<a href="mpyc.statistics.html">statistics</a><br>
+<a href="mpyc.thresha.html">thresha</a><br>
+</td></tr></table></td></tr></table>
+</body></html>
