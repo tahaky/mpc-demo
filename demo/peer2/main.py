@@ -26,6 +26,7 @@ async def main():
 
     secret_local_sum = secint(local_age_sum)
 
+
     shared_sums = []
 
     for sender in range(len(mpc.parties)):
@@ -36,10 +37,10 @@ async def main():
         else:
             x = None
 
-        shared = mpc.input(x, senders=sender)
-        shared_sums.extend(shared)
+    shared = mpc.input(x, senders=sender)
+    shared_sums.append(shared)
 
-        print(f"[{mpc.pid}] input sender={sender} sonrası", flush=True)
+    print(f"[{mpc.pid}] input sender={sender} sonrası", flush=True)
 
     total = mpc.sum(shared_sums)
 
